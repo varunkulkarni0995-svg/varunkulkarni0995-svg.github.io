@@ -1,0 +1,77 @@
+/* Varun Kulkarni design system: component styles. Reads only token variables. */
+.vk { font-family: var(--font-sans); color: var(--ink); }
+.vk-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2);
+  min-height: 44px; padding: var(--space-3) var(--space-6);
+  font: 600 15px/20px var(--font-sans);
+  border-radius: var(--radius-md); border: var(--stroke-hair) solid transparent;
+  cursor: pointer; text-decoration: none;
+}
+.vk-btn--primary { background: var(--accent); color: var(--on-accent); }
+.vk-btn--secondary { background: var(--surface-1); color: var(--ink); border-color: var(--line); }
+.vk-btn--ghost { background: transparent; color: var(--accent); }
+.vk-btn--danger { background: var(--danger); color: #ffffff; }
+.vk-btn:hover { filter: brightness(0.95); }
+.vk-btn:focus-visible, .vk-input:focus-visible { outline: var(--stroke-focus) solid var(--accent); outline-offset: 2px; }
+.vk-btn[disabled] { opacity: 0.45; cursor: not-allowed; }
+
+.vk-card {
+  background: var(--surface-1); color: var(--ink);
+  border: var(--stroke-hair) solid var(--line); border-radius: var(--radius-md);
+  padding: var(--space-6); display: flex; flex-direction: column; gap: var(--space-3);
+}
+.vk-card--raised { box-shadow: var(--shadow-card); }
+.vk-eyebrow { font: 600 12px/16px var(--font-sans); letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-muted); }
+.vk-card h3 { margin: 0; font: 600 19px/26px var(--font-sans); }
+.vk-card p { margin: 0; font: 400 16px/24px var(--font-sans); color: var(--ink-muted); }
+.vk-num { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+
+.vk-badge {
+  display: inline-flex; align-items: center; gap: var(--space-1);
+  padding: 2px var(--space-2); border-radius: var(--radius-pill);
+  font: 600 12px/18px var(--font-sans); border: var(--stroke-hair) solid currentColor;
+}
+.vk-badge--info { background: var(--accent-soft); color: var(--ink); border-color: var(--accent); }
+.vk-badge--success { color: var(--success); }
+.vk-badge--warning { color: var(--warning); }
+.vk-badge--danger { color: var(--danger); }
+
+.vk-field { display: flex; flex-direction: column; gap: var(--space-1); }
+.vk-field label { font: 600 14px/20px var(--font-sans); color: var(--ink); }
+.vk-field small { font: 400 14px/20px var(--font-sans); color: var(--ink-muted); }
+.vk-input {
+  min-height: 44px; padding: var(--space-2) var(--space-3);
+  font: 400 16px/24px var(--font-sans); color: var(--ink);
+  background: var(--surface-1); border: var(--stroke-hair) solid var(--line); border-radius: var(--radius-sm);
+}
+.vk-field--error .vk-input { border-color: var(--danger); }
+.vk-field--error small { color: var(--danger); }
+
+.vk-alert {
+  display: flex; gap: var(--space-3); align-items: flex-start;
+  padding: var(--space-4); border-radius: var(--radius-md);
+  background: var(--surface-1); border: var(--stroke-hair) solid var(--line);
+  font: 400 16px/24px var(--font-sans);
+}
+.vk-alert strong { display: block; font-weight: 700; }
+.vk-alert--success { border-color: var(--success); }
+.vk-alert--warning { border-color: var(--warning); }
+.vk-alert--danger { border-color: var(--danger); }
+.vk-alert svg { flex: none; }
+
+.vk-cast {
+  display: flex; align-items: center; gap: var(--space-6);
+  padding: var(--space-6); border-radius: var(--radius-lg);
+  background: var(--surface-1); border: var(--stroke-hair) solid var(--line);
+}
+.vk-cast img { width: 140px; height: 160px; object-fit: contain; flex: none; }
+.vk-cast h3 { margin: 0 0 var(--space-1); font: 700 19px/26px var(--font-sans); }
+.vk-cast p { margin: 0 0 var(--space-3); font: 400 16px/24px var(--font-sans); color: var(--ink-muted); }
+
+/* Play mode turns borders bold and shadows hard */
+[data-theme="play"] .vk-btn, [data-theme="play"] .vk-card, [data-theme="play"] .vk-input,
+[data-theme="play"] .vk-alert, [data-theme="play"] .vk-cast { border-width: var(--stroke-bold); border-color: var(--ink); }
+[data-theme="play"] .vk-btn--primary, [data-theme="play"] .vk-card--raised, [data-theme="play"] .vk-cast { box-shadow: var(--shadow-card); }
+/* Trust mode: bigger targets */
+[data-theme="trust"] .vk-btn { min-height: 48px; font-size: 17px; }
+[data-theme="trust"] .vk-input { min-height: 48px; }

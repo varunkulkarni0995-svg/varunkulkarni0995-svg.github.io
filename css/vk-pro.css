@@ -1,0 +1,13 @@
+/* VK design system, Pro theme, as CSS variables (values from ds/vk/tokens.json) */
+:root{
+--surface-0:#f7f5f0;--surface-1:#ffffff;--surface-2:#efece5;
+--ink:#1b1e23;--ink-muted:#565b63;--line:#dcd8cf;
+--accent:#5b3fc4;--on-accent:#ffffff;--accent-soft:#ece7fb;--highlight:#f2a33a;
+--success:#1e7f4f;--warning:#9a5800;--danger:#c0322b;
+--font-sans:"Noto Sans","Segoe UI",system-ui,sans-serif;
+--font-mono:"Noto Sans Mono","Cascadia Mono",ui-monospace,monospace;
+--space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-6:24px;--space-8:32px;--space-12:48px;--space-16:64px;
+--radius-sm:6px;--radius-md:12px;--radius-lg:20px;--radius-pill:999px;
+--stroke-hair:1px;--stroke-bold:3px;--stroke-focus:3px;
+--shadow-card:0 1px 2px rgba(27,30,35,0.06),0 6px 20px rgba(27,30,35,0.06);
+}
