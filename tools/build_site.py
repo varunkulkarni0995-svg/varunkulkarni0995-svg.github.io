@@ -1,12 +1,12 @@
 """Builds the website pages (v2.2) from the content below. Run: python3 tools/build_site.py"""
 import html, pathlib
 
-VERSION = "v2.2"
+VERSION = "v2.3"
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 EMAIL = "varunkulkarni0995@gmail.com"
 LINKEDIN = "https://www.linkedin.com/in/vkulkarnipm"
 GITHUB = "https://github.com/varunkulkarni0995-svg"
-RESUME = "/resume/Varun_Kulkarni_Resume.pdf"
+RESUME = "mailto:" + EMAIL + "?subject=R%C3%A9sum%C3%A9%20request"
 LAYERUP = "https://varunkulkarni0995-svg.github.io/layer-up/"
 APIBENCH = "https://varunkulkarni0995-svg.github.io/api-bench/"
 COMPARE = APIBENCH + "compare.html"
@@ -88,8 +88,7 @@ home = f"""<main>
 <div class="actions">
 <a class="vk-btn vk-btn--primary" href="mailto:{EMAIL}">Email</a>
 <a class="vk-btn vk-btn--secondary" href="{LINKEDIN}">LinkedIn</a>
-<a class="vk-btn vk-btn--ghost" href="{RESUME}">Résumé (PDF)</a>
-<span class="muted small">Updated Nov 2026</span>
+<a class="vk-btn vk-btn--ghost" href="{RESUME}">Request my résumé</a>
 </div>
 <p class="muted">Open to Senior and Lead product roles in B2B, fintech and AI.</p>
 </section>
@@ -140,7 +139,7 @@ home = f"""<main>
 
 <section id="contact" class="contact" aria-labelledby="contact-title"><div class="wrap contactrow">
 <div><h2 id="contact-title">Get in touch</h2><p>I’m always happy to talk about product work.</p></div>
-<div class="actions"><a class="vk-btn invert" href="mailto:{EMAIL}">Email</a><a class="vk-btn outline" href="{LINKEDIN}">LinkedIn</a><a class="vk-btn outline" href="{RESUME}">Résumé</a></div>
+<div class="actions"><a class="vk-btn invert" href="mailto:{EMAIL}">Email</a><a class="vk-btn outline" href="{LINKEDIN}">LinkedIn</a><a class="vk-btn outline" href="{RESUME}">Request my résumé</a></div>
 </div></section>
 </main>"""
 
