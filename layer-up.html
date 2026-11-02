@@ -7,6 +7,12 @@
 <meta name="description" content="How I built Layer Up NYC: what to wear in New York from the hourly forecast, how you travel and your tolerance for weather.">
 <meta property="og:title" content="Layer Up NYC · a weather-based outfit planner · Varun Kulkarni">
 <meta property="og:description" content="How I built Layer Up NYC: what to wear in New York from the hourly forecast, how you travel and your tolerance for weather.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://varunkulkarni0995-svg.github.io/layer-up.html">
+<meta property="og:image" content="https://varunkulkarni0995-svg.github.io/img/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://varunkulkarni0995-svg.github.io/layer-up.html">
+<link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/css/vk-pro.css">
 <link rel="stylesheet" href="/css/bundle.css">
 <link rel="stylesheet" href="/css/site.css">
@@ -25,13 +31,13 @@
 <h1>Layer Up NYC</h1>
 <p class="lede">After moving to New York, I kept dressing for the morning forecast and regretting it by evening. Layer Up plans what to wear from the hourly weather, how I’m getting around and how much cold, heat and rain I can take.</p>
 <div class="actions"><a class="vk-btn vk-btn--primary" href="https://varunkulkarni0995-svg.github.io/layer-up/">Open Layer Up</a><a class="vk-btn vk-btn--secondary" href="https://github.com/varunkulkarni0995-svg/layer-up">View the code on GitHub</a></div>
-<figure class="fig fig--phone"><img src="/img/layer-up-window.png" alt="Layer Up with 6 to 9 PM selected: coldest hour 2°, outfit hoodie and overcoat with beanie and gloves"><figcaption>Choose a time window; the app plans for the coldest hour.</figcaption></figure>
+<figure class="fig fig--phone"><img loading="lazy" src="/img/layer-up-window.webp" alt="Layer Up with 6 to 9 PM selected: coldest hour 2°, outfit hoodie and overcoat with beanie and gloves"><figcaption>Choose a time window; the app plans for the coldest hour.</figcaption></figure>
 <div class="rows"><div class="row"><span class="vk-eyebrow">Background</span><div>Weather apps show the forecast, not what to wear, and they treat walking outside, the subway and a classroom the same.</div></div><div class="row"><span class="vk-eyebrow">Hypothesis</span><div>Combining “feels like” temperature, how you travel and personal tolerance gives more useful advice than a forecast alone.</div></div><div class="row"><span class="vk-eyebrow">Key decision</span><div>Rules choose the outfit so identical inputs give identical results and every rule can be tested. AI is reserved for reading free-text input.</div></div><div class="row"><span class="vk-eyebrow">Implementation</span><div>Plain HTML and JavaScript on GitHub Pages; Open-Meteo for weather; Photon for place search; device location where permitted.</div></div><div class="row"><span class="vk-eyebrow">Testing and validation</span><div>63 unit tests, 28 browser checks, and an outside review that found 2 issues, both fixed.</div></div><div class="row"><span class="vk-eyebrow">Next steps</span><div>Planned, not built: sync across devices, a daily “layer up or down” message, and an AI chat protected by a passkey.</div></div></div>
 <section class="stack" aria-labelledby="dec-title"><h2 id="dec-title">Product decisions and trade-offs</h2><div class="decisions"><article class="vk-card"><span class="vk-eyebrow">Place search</span><h3>Searching for landmarks</h3><p>A search for “Times Square” matched a town called Time in Norway. I switched to Photon, which finds landmarks and ranks results near you.</p></article><article class="vk-card"><span class="vk-eyebrow">Reliability</span><h3>Rules relax instead of freezing</h3><p>A review found an endless loop when the wardrobe couldn’t meet every rule. The rules now relax one step at a time, and the app says what’s missing.</p></article><article class="vk-card"><span class="vk-eyebrow">Security · planned</span><h3>The AI key stays on a server</h3><p>The AI key will stay on a server, never on the phone; a passkey will unlock the chat.</p></article></div></section>
 </main>
 <footer class="foot"><div class="wrap footrow">
 <span class="muted">Varun Kulkarni · New York</span>
-<span class="footlinks"><a href="mailto:varunkulkarni0995@gmail.com">Email</a><a href="https://www.linkedin.com/in/vkulkarnipm">LinkedIn</a><a href="https://github.com/varunkulkarni0995-svg">GitHub</a><span class="ver">v2.7</span></span>
+<span class="footlinks"><a href="mailto:varunkulkarni0995@gmail.com">Email</a><a href="https://www.linkedin.com/in/vkulkarnipm">LinkedIn</a><a href="https://github.com/varunkulkarni0995-svg">GitHub</a><span class="ver">v2.8</span></span>
 </div></footer>
 </div>
 </body>

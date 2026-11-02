@@ -1,7 +1,7 @@
 """Builds the website pages (v2.2) from the content below. Run: python3 tools/build_site.py"""
 import html, pathlib
 
-VERSION = "v2.7"
+VERSION = "v2.8"
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 EMAIL = "varunkulkarni0995@gmail.com"
 LINKEDIN = "https://www.linkedin.com/in/vkulkarnipm"
@@ -14,7 +14,9 @@ COMPARE = APIBENCH + "compare.html"
 
 def e(s): return html.escape(s, quote=True)
 
-def page(title, desc, body, active=""):
+SITE = "https://varunkulkarni0995-svg.github.io"
+
+def page(title, desc, body, active="", path="/"):
     nav = [("Projects", "/#projects"), ("Experience", "/#experience"), ("About", "/about.html")]
     links = "".join(f'<a href="{h}"{" aria-current=\"page\"" if n == active else ""}>{n}</a>' for n, h in nav)
     return f"""<!doctype html>
@@ -26,6 +28,12 @@ def page(title, desc, body, active=""):
 <meta name="description" content="{e(desc)}">
 <meta property="og:title" content="{e(title)}">
 <meta property="og:description" content="{e(desc)}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{SITE}{path}">
+<meta property="og:image" content="{SITE}/img/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="{SITE}{path}">
+<link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/css/vk-pro.css">
 <link rel="stylesheet" href="/css/bundle.css">
 <link rel="stylesheet" href="/css/site.css">
@@ -104,7 +112,7 @@ home = f"""<main>
 <div><span class="vk-eyebrow">Selected projects</span><h2 id="projects-title">Selected projects</h2><p class="muted">Small tools I build to stay hands-on with AI and APIs. Both are live prototypes.</p></div>
 <div class="cards">
 <article class="vk-card vk-card--raised proj">
-<div class="shot shot--phone"><img src="/img/layer-up-today.png" alt="Layer Up NYC on a phone: feels-like 6°, an hourly strip and today's outfit"></div>
+<div class="shot shot--phone"><img src="/img/layer-up-today.webp" alt="Layer Up NYC on a phone: feels-like 6°, an hourly strip and today's outfit"></div>
 <div class="projbody">
 <h3>Layer Up NYC <span class="muted thin">— a weather-based outfit planner</span></h3>
 <p>Uses the forecast, how you travel and how much cold you can take to decide what to wear. Rules make the recommendation, so the same inputs always give the same result; AI only reads free-text input.</p>
@@ -112,7 +120,7 @@ home = f"""<main>
 <div class="actions"><a class="vk-btn vk-btn--primary" href="{LAYERUP}">Try it</a><a class="vk-btn vk-btn--ghost" href="/layer-up.html">How I built it →</a></div>
 </div></article>
 <article class="vk-card vk-card--raised proj">
-<div class="shot"><img src="/img/api-bench-compare.png" alt="API Bench Compare Models: three AI models answer the same question side by side, with status, time and tokens for each"></div>
+<div class="shot"><img loading="lazy" src="/img/api-bench-compare.webp" alt="API Bench Compare Models: three AI models answer the same question side by side, with status, time and tokens for each"></div>
 <div class="projbody">
 <h3>API Bench <span class="muted thin">— testing APIs and comparing AI models</span></h3>
 <p>Sends one prompt to several AI providers and keeps every request, response, error and timing, so the answers can be compared side by side.</p>
@@ -171,7 +179,7 @@ def build_page(back_title, badges, title, intro, buttons, img, rowsitems, decs):
 layerup = build_page("", ["Live prototype", "Phone"], "Layer Up NYC",
     "After moving to New York, I kept dressing for the morning forecast and regretting it by evening. Layer Up plans what to wear from the hourly weather, how I’m getting around and how much cold, heat and rain I can take.",
     [("Open Layer Up", LAYERUP, "vk-btn--primary"), ("View the code on GitHub", GITHUB + "/layer-up", "vk-btn--secondary")],
-    '<figure class="fig fig--phone"><img src="/img/layer-up-window.png" alt="Layer Up with 6 to 9 PM selected: coldest hour 2°, outfit hoodie and overcoat with beanie and gloves"><figcaption>Choose a time window; the app plans for the coldest hour.</figcaption></figure>',
+    '<figure class="fig fig--phone"><img loading="lazy" src="/img/layer-up-window.webp" alt="Layer Up with 6 to 9 PM selected: coldest hour 2°, outfit hoodie and overcoat with beanie and gloves"><figcaption>Choose a time window; the app plans for the coldest hour.</figcaption></figure>',
     [("Background", e("Weather apps show the forecast, not what to wear, and they treat walking outside, the subway and a classroom the same.")),
      ("Hypothesis", e("Combining “feels like” temperature, how you travel and personal tolerance gives more useful advice than a forecast alone.")),
      ("Key decision", e("Rules choose the outfit so identical inputs give identical results and every rule can be tested. AI is reserved for reading free-text input.")),
@@ -185,7 +193,7 @@ layerup = build_page("", ["Live prototype", "Phone"], "Layer Up NYC",
 apibench = build_page("", ["Live prototype", "Laptop", "v1.3.3"], "API Bench",
     "I built API Bench to see how APIs behave in practice, not only how their documentation describes them. Its Compare Models page sends one prompt to several AI providers side by side.",
     [("Open Compare Models", COMPARE, "vk-btn--primary"), ("Open API Bench", APIBENCH, "vk-btn--secondary"), ("View the code on GitHub", GITHUB + "/api-bench", "vk-btn--ghost")],
-    '<figure class="fig"><img src="/img/api-bench-compare.png" alt="Compare Models results: three AI models answer the same question side by side, each card showing status, time, tokens and settings"><figcaption>One prompt, three providers, each with the exact request, raw response, time and tokens. (Sample run.)</figcaption></figure>',
+    '<figure class="fig"><img loading="lazy" src="/img/api-bench-compare.webp" alt="Compare Models results: three AI models answer the same question side by side, each card showing status, time, tokens and settings"><figcaption>One prompt, three providers, each with the exact request, raw response, time and tokens. (Sample run.)</figcaption></figure>',
     [("Background", e("Comparing AI models means a different console, key and format for each provider. A screenshot of a chat window doesn’t show the settings, the raw response or the timing.")),
      ("Hypothesis", e("Sending the same prompt and settings to every provider, and keeping every request and response, makes comparisons fair and repeatable.")),
      ("Key decision", e("API keys stay in the visitor’s browser, with no server in between. The trade-off: five providers that block browser calls are left out until a safe proxy exists.")),
@@ -199,7 +207,7 @@ apibench = build_page("", ["Live prototype", "Laptop", "v1.3.3"], "API Bench",
 about = f"""<main class="wrap stack page narrow">
 <span class="vk-eyebrow">About</span>
 <h1>A little more about me</h1>
-<p class="lede">I trained as a mechanical engineer and moved into product in 2018 at Fino Payments Bank. Since then I’ve worked on payments for very different users: shopkeepers acting as banking agents in villages, travellers paying abroad, and people using digital payments for the first time.</p>
+<p class="lede">I trained as a mechanical engineer and moved into product in 2018 at Fino Payments Bank. Since then I’ve worked on payments for very different users: shopkeepers acting as banking agents in villages, travelers paying abroad, and people using digital payments for the first time.</p>
 <p>Most of that work was at NPCI, where a product change needs agreement from banks, apps and regulators before it ships. I enjoy that kind of problem, and I still like getting into the technical detail myself.</p>
 <p>I’m now doing an MBA at Cornell Johnson in New York, where I co-founded the Cornell FinTech Club. I’ve spoken at Global Fintech Fest (2023) on UPI’s global opportunity.</p>
 <h2>Outside work</h2>
@@ -208,17 +216,17 @@ about = f"""<main class="wrap stack page narrow">
 </main>"""
 
 notfound = """<main class="wrap nf">
-<div class="nfimg"><img src="/img/gregory.png" alt="Gregory, a small person peeking out of a huge rust-coloured hooded coat"></div>
+<div class="nfimg"><img loading="lazy" src="/img/gregory.webp" alt="Gregory, a small person peeking out of a huge rust-coloured hooded coat"></div>
 <div class="stack"><span class="vk-num muted">404</span><h1>This page isn’t here. Gregory is, though.</h1><p class="lede">The link may be broken or the page may have moved.</p>
 <div class="actions"><a class="vk-btn vk-btn--primary" href="/">Go home</a><a class="vk-btn vk-btn--secondary" href="/#projects">Selected projects</a></div></div>
 </main>"""
 
 pages = {
     "index.html": page("Varun Kulkarni · Product manager", "Product manager with 8+ years taking products from idea to launch, including UPI at NPCI. Now in New York.", home),
-    "layer-up.html": page("Layer Up NYC · a weather-based outfit planner · Varun Kulkarni", "How I built Layer Up NYC: what to wear in New York from the hourly forecast, how you travel and your tolerance for weather.", layerup, "Projects"),
-    "api-bench.html": page("API Bench · testing APIs and comparing AI models · Varun Kulkarni", "How I built API Bench: one prompt sent to several AI providers, with every request, response, error and timing kept.", apibench, "Projects"),
-    "about.html": page("About Varun Kulkarni", "Product manager who moved from mechanical engineering into payments product work in India, now in New York.", about, "About"),
-    "404.html": page("Page not found · Varun Kulkarni", "This page isn't here.", notfound),
+    "layer-up.html": page("Layer Up NYC · a weather-based outfit planner · Varun Kulkarni", "How I built Layer Up NYC: what to wear in New York from the hourly forecast, how you travel and your tolerance for weather.", layerup, "Projects", "/layer-up.html"),
+    "api-bench.html": page("API Bench · testing APIs and comparing AI models · Varun Kulkarni", "How I built API Bench: one prompt sent to several AI providers, with every request, response, error and timing kept.", apibench, "Projects", "/api-bench.html"),
+    "about.html": page("About Varun Kulkarni", "Product manager who moved from mechanical engineering into payments product work in India, now in New York.", about, "About", "/about.html"),
+    "404.html": page("Page not found · Varun Kulkarni", "This page isn't here. Head back to the home page.", notfound, path="/404.html"),
 }
 for name, txt in pages.items():
     (ROOT / name).write_text(txt, encoding="utf-8")
