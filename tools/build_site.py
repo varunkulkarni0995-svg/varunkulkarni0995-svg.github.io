@@ -1,15 +1,15 @@
 """Builds the website pages (v2.2) from the content below. Run: python3 tools/build_site.py"""
 import html, pathlib
 
-VERSION = "v2.5"
+VERSION = "v2.6"
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 EMAIL = "varunkulkarni0995@gmail.com"
 LINKEDIN = "https://www.linkedin.com/in/vkulkarnipm"
-GITHUB = "https://github.com/varunkulkarni0995-svg"
+GITHUB = "https://github.com/vkulkarnipm"
 RESUME_PDF = "/resume/Varun_Kulkarni_Resume_Web.pdf"
 RESUME = "mailto:" + EMAIL + "?subject=R%C3%A9sum%C3%A9%20request"
-LAYERUP = "https://varunkulkarni0995-svg.github.io/layer-up/"
-APIBENCH = "https://varunkulkarni0995-svg.github.io/api-bench/"
+LAYERUP = "https://vkulkarnipm.github.io/layer-up/"
+APIBENCH = "https://vkulkarnipm.github.io/api-bench/"
 COMPARE = APIBENCH + "compare.html"
 
 def e(s): return html.escape(s, quote=True)
