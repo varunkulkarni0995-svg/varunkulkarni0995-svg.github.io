@@ -1,7 +1,7 @@
 """Builds the website pages (v2.2) from the content below. Run: python3 tools/build_site.py"""
 import html, pathlib
 
-VERSION = "v2.4"
+VERSION = "v2.5"
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 EMAIL = "varunkulkarni0995@gmail.com"
 LINKEDIN = "https://www.linkedin.com/in/vkulkarnipm"
@@ -73,7 +73,7 @@ education = [
     ("2026 – 2027", "MBA (STEM-designated)", "Cornell Johnson, New York · expected May 2027", "Merit Scholarship · Fellow, Cañizares Center for Emerging Markets"),
     ("2026", "Executive Certificate Programme in FinTech and AI", "IIM Calcutta (via Emeritus)", ""),
     ("2022 – 2023", "Executive Development Program, Strategic Management", "XLRI Jamshedpur", ""),
-    ("", "Certified Great People Manager", "Great Manager Institute", ""),
+    ("2025", "Certified Great People Manager", "Great Manager Institute", ""),
     ("2013 – 2017", "B.E., Mechanical Engineering", "MIT Pune", ""),
 ]
 def career(lst):
