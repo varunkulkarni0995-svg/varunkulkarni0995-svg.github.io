@@ -3,118 +3,36 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Layer Up NYC · How it works · Varun Kulkarni</title>
-<meta name="description" content="How I built Layer Up NYC: what to wear in New York from how the weather feels.">
-<meta property="og:title" content="Layer Up NYC · How it works · Varun Kulkarni">
-<meta property="og:description" content="How I built Layer Up NYC: what to wear in New York from how the weather feels.">
+<title>Layer Up NYC · a weather-based outfit planner · Varun Kulkarni</title>
+<meta name="description" content="How I built Layer Up NYC: what to wear in New York from the hourly forecast, how you travel and your tolerance for weather.">
+<meta property="og:title" content="Layer Up NYC · a weather-based outfit planner · Varun Kulkarni">
+<meta property="og:description" content="How I built Layer Up NYC: what to wear in New York from the hourly forecast, how you travel and your tolerance for weather.">
 <link rel="stylesheet" href="/css/vk-pro.css">
 <link rel="stylesheet" href="/css/bundle.css">
 <link rel="stylesheet" href="/css/site.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700;800&amp;family=Noto+Sans+Mono:wght@500;700&amp;display=swap" rel="stylesheet">
-<style>
-body{margin:0;background:#f7f5f0}
-a{color:#5b3fc4}a:hover{color:#3f2a94}
-</style>
 </head>
 <body>
-
-<div class="vk" style="background: var(--surface-0); color: var(--ink); font-family: var(--font-sans); min-height: 100vh">
-
-<header style="border-bottom: 1px solid var(--line)">
-<nav aria-label="Main" style="max-width: 1120px; margin: 0 auto; padding: 16px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
-<a href="/" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink)">
-<span style="width: 36px; height: 36px; border-radius: 8px; background: var(--ink); color: var(--surface-0); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 15px">VK</span>
-<span style="font-weight: 700; font-size: 16px">Varun Kulkarni</span>
-</a>
-<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 24px; font-size: 15px; font-weight: 500">
-<a href="/#builds" style="color: var(--ink); text-decoration: none">Builds</a>
-<a href="/#work" style="color: var(--ink); text-decoration: none">Experience</a>
-<a href="/about.html" style="color: var(--ink); text-decoration: none">About</a>
-</div>
-</nav>
-</header>
-
-<main style="max-width: 1120px; margin: 0 auto; padding: 48px 24px 96px; display: flex; flex-direction: column; gap: 56px">
-
-<div style="display: flex; flex-direction: column; gap: 20px">
-<a href="/#builds" style="font-size: 14px; font-weight: 600; text-decoration: none">← All builds</a>
-<div style="display: flex; flex-wrap: wrap; gap: 8px">
-<span class="vk-badge vk-badge--success">Live prototype</span>
-<span class="vk-badge" style="color: var(--ink-muted)">Phone first</span>
-</div>
-<h1 style="margin: 0; font-size: 56px; line-height: 60px; font-weight: 800; letter-spacing: -0.02em">Layer Up NYC</h1>
-<p style="margin: 0; font-size: 21px; line-height: 32px; color: var(--ink-muted); max-width: 720px">After moving to New York, I kept dressing for the forecast and regretting it a few hours later. Layer Up plans what to wear from the weather, how I'm getting around, and how much cold, heat and rain I can take.</p>
-<div style="display: flex; flex-wrap: wrap; gap: 12px">
-<a class="vk-btn vk-btn--primary" href="https://varunkulkarni0995-svg.github.io/layer-up/">Open Layer Up</a>
-<a class="vk-btn vk-btn--secondary" href="https://github.com/varunkulkarni0995-svg/layer-up">View the code on GitHub</a>
-</div>
-</div>
-
-<div style="display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-start">
-<div style="flex: 999 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 0; border-top: 1px solid var(--line)">
-
-<div style="display: grid; grid-template-columns: 160px 1fr; gap: 24px; padding: 20px 0; border-bottom: 1px solid var(--line)">
-<span class="vk-eyebrow" style="padding-top: 3px">The problem</span>
-<p style="margin: 0; font-size: 17px; line-height: 26px">Weather apps tell you the forecast, not what to wear. They also ignore the difference between walking outside, taking the subway, sitting in class and going for a run.</p>
-</div>
-<div style="display: grid; grid-template-columns: 160px 1fr; gap: 24px; padding: 20px 0; border-bottom: 1px solid var(--line)">
-<span class="vk-eyebrow" style="padding-top: 3px">The bet</span>
-<p style="margin: 0; font-size: 17px; line-height: 26px">My hypothesis: combining "feels like" temperature, how you travel and your tolerance for the weather gives more useful outfit advice than a generic forecast.</p>
-</div>
-<div style="display: grid; grid-template-columns: 160px 1fr; gap: 24px; padding: 20px 0; border-bottom: 1px solid var(--line)">
-<span class="vk-eyebrow" style="padding-top: 3px">The call</span>
-<div style="display: flex; flex-direction: column; gap: 8px">
-<p style="margin: 0; font-size: 17px; line-height: 26px"><strong>Rules decide the outfit; AI will only interpret free text.</strong></p>
-<p style="margin: 0; font-size: 16px; line-height: 24px; color: var(--ink-muted)">I rejected letting AI choose the outfit because I wanted the same inputs to give the same result, and every rule to be testable.</p>
-</div>
-</div>
-<div style="display: grid; grid-template-columns: 160px 1fr; gap: 24px; padding: 20px 0; border-bottom: 1px solid var(--line)">
-<span class="vk-eyebrow" style="padding-top: 3px">Built</span>
-<p style="margin: 0; font-size: 17px; line-height: 26px">Plain HTML and JavaScript on GitHub Pages · Open-Meteo weather · Photon place search · device location where permitted. Supabase and passkey access are planned next.</p>
-</div>
-<div style="display: grid; grid-template-columns: 160px 1fr; gap: 24px; padding: 20px 0; border-bottom: 1px solid var(--line)">
-<span class="vk-eyebrow" style="padding-top: 3px">Proof</span>
-<div style="display: flex; flex-wrap: wrap; gap: 24px">
-<span style="display: flex; flex-direction: column"><span class="vk-num" style="font-size: 32px; line-height: 40px; font-weight: 700">63</span><span style="font-size: 14px; color: var(--ink-muted)">unit tests</span></span>
-<span style="display: flex; flex-direction: column"><span class="vk-num" style="font-size: 32px; line-height: 40px; font-weight: 700">28</span><span style="font-size: 14px; color: var(--ink-muted)">browser checks</span></span>
-<span style="display: flex; flex-direction: column"><span class="vk-num" style="font-size: 32px; line-height: 40px; font-weight: 700">2</span><span style="font-size: 14px; color: var(--ink-muted)">issues found in outside review, fixed</span></span>
-</div>
-</div>
-<div style="display: grid; grid-template-columns: 160px 1fr; gap: 24px; padding: 20px 0; border-bottom: 1px solid var(--line)">
-<span class="vk-eyebrow" style="padding-top: 3px">What's next</span>
-<p style="margin: 0; font-size: 17px; line-height: 26px">Planned: sync across devices, a daily "Layer Up / Layer Down" message, and an Ask chat protected by a passkey.</p>
-</div>
-</div>
-
-<figure style="flex: 1 1 280px; margin: 0; display: flex; flex-direction: column; gap: 12px; align-items: center">
-<img src="/img/layer-up-window.png" alt="Layer Up with 6 to 9 PM selected: coldest hour 2°, outfit hoodie and overcoat with beanie and gloves" style="width: 280px; height: auto; border-radius: 24px; border: 1px solid var(--line); box-shadow: var(--shadow-card)">
-<figcaption style="font-size: 14px; line-height: 20px; color: var(--ink-muted); text-align: center; max-width: 280px">Choose a time window; the app plans for the coldest hour.</figcaption>
-</figure>
-</div>
-
-<section aria-labelledby="decisions-title" style="display: flex; flex-direction: column; gap: 20px">
-<h2 id="decisions-title" style="margin: 0; font-size: 28px; line-height: 36px; font-weight: 700">Decisions I'd defend in an interview</h2>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px">
-<article class="vk-card">
-<span class="vk-eyebrow">Place search</span>
-<h3>Switched geocoders after "Time" returned Norway</h3>
-<p>The first geocoder treated "Time" as a town in Norway and missed landmarks. Photon finds parks and landmarks and ranks results near you.</p>
-</article>
-<article class="vk-card">
-<span class="vk-eyebrow">Reliability</span>
-<h3>Rules relax instead of freezing</h3>
-<p>An outside review exposed an endless loop when the wardrobe couldn't meet the rules. Now the rules relax one step at a time and the app says what's missing.</p>
-</article>
-<article class="vk-card">
-<span class="vk-eyebrow">Security</span>
-<h3>The AI key will stay on the server</h3>
-<p>Planned: the key lives on the server, never on the phone, and a passkey will unlock the AI chat.</p>
-</article>
-</div>
-</section>
-
+<div class="vk site">
+<header class="top"><nav aria-label="Main" class="wrap navbar">
+<a href="/" class="brand"><span class="mark">VK</span><span>Varun Kulkarni</span></a>
+<div class="navlinks"><a href="/#projects" aria-current="page">Projects</a><a href="/#experience">Experience</a><a href="/about.html">About</a><a class="vk-btn vk-btn--secondary navcta" href="/#contact">Contact</a></div>
+</nav></header>
+<main class="wrap stack page">
+<a href="/#projects" class="back">← All projects</a>
+<div class="badges"><span class="vk-badge vk-badge--success">Live prototype</span><span class="vk-badge">Phone</span></div>
+<h1>Layer Up NYC</h1>
+<p class="lede">After moving to New York, I kept dressing for the morning forecast and regretting it by evening. Layer Up plans what to wear from the hourly weather, how I’m getting around and how much cold, heat and rain I can take.</p>
+<div class="actions"><a class="vk-btn vk-btn--primary" href="https://varunkulkarni0995-svg.github.io/layer-up/">Open Layer Up</a><a class="vk-btn vk-btn--secondary" href="https://github.com/varunkulkarni0995-svg/layer-up">View the code on GitHub</a></div>
+<figure class="fig fig--phone"><img src="/img/layer-up-window.png" alt="Layer Up with 6 to 9 PM selected: coldest hour 2°, outfit hoodie and overcoat with beanie and gloves"><figcaption>Choose a time window; the app plans for the coldest hour.</figcaption></figure>
+<div class="rows"><div class="row"><span class="vk-eyebrow">Background</span><div>Weather apps show the forecast, not what to wear, and they treat walking outside, the subway and a classroom the same.</div></div><div class="row"><span class="vk-eyebrow">Hypothesis</span><div>Combining “feels like” temperature, how you travel and personal tolerance gives more useful advice than a forecast alone.</div></div><div class="row"><span class="vk-eyebrow">Key decision</span><div>Rules choose the outfit so identical inputs give identical results and every rule can be tested. AI is reserved for reading free-text input.</div></div><div class="row"><span class="vk-eyebrow">Implementation</span><div>Plain HTML and JavaScript on GitHub Pages; Open-Meteo for weather; Photon for place search; device location where permitted.</div></div><div class="row"><span class="vk-eyebrow">Testing and validation</span><div>63 unit tests, 28 browser checks, and an outside review that found 2 issues, both fixed.</div></div><div class="row"><span class="vk-eyebrow">Next steps</span><div>Planned, not built: sync across devices, a daily “layer up or down” message, and an AI chat protected by a passkey.</div></div></div>
+<section class="stack" aria-labelledby="dec-title"><h2 id="dec-title">Product decisions and trade-offs</h2><div class="decisions"><article class="vk-card"><span class="vk-eyebrow">Place search</span><h3>Searching for landmarks</h3><p>A search for “Times Square” matched a town called Time in Norway. I switched to Photon, which finds landmarks and ranks results near you.</p></article><article class="vk-card"><span class="vk-eyebrow">Reliability</span><h3>Rules relax instead of freezing</h3><p>A review found an endless loop when the wardrobe couldn’t meet every rule. The rules now relax one step at a time, and the app says what’s missing.</p></article><article class="vk-card"><span class="vk-eyebrow">Security · planned</span><h3>The AI key stays on a server</h3><p>The AI key will stay on a server, never on the phone; a passkey will unlock the chat.</p></article></div></section>
 </main>
+<footer class="foot"><div class="wrap footrow">
+<span class="muted">Varun Kulkarni · New York</span>
+<span class="footlinks"><a href="mailto:varunkulkarni0995@gmail.com">Email</a><a href="https://www.linkedin.com/in/vkulkarnipm">LinkedIn</a><a href="https://github.com/varunkulkarni0995-svg">GitHub</a><span class="ver">v2.2</span></span>
+</div></footer>
 </div>
 </body>
 </html>
