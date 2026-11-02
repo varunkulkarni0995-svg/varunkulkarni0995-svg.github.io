@@ -1,11 +1,12 @@
 """Builds the website pages (v2.2) from the content below. Run: python3 tools/build_site.py"""
 import html, pathlib
 
-VERSION = "v2.3"
+VERSION = "v2.4"
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 EMAIL = "varunkulkarni0995@gmail.com"
 LINKEDIN = "https://www.linkedin.com/in/vkulkarnipm"
 GITHUB = "https://github.com/varunkulkarni0995-svg"
+RESUME_PDF = "/resume/Varun_Kulkarni_Resume_Web.pdf"
 RESUME = "mailto:" + EMAIL + "?subject=R%C3%A9sum%C3%A9%20request"
 LAYERUP = "https://varunkulkarni0995-svg.github.io/layer-up/"
 APIBENCH = "https://varunkulkarni0995-svg.github.io/api-bench/"
@@ -88,8 +89,9 @@ home = f"""<main>
 <div class="actions">
 <a class="vk-btn vk-btn--primary" href="mailto:{EMAIL}">Email</a>
 <a class="vk-btn vk-btn--secondary" href="{LINKEDIN}">LinkedIn</a>
-<a class="vk-btn vk-btn--ghost" href="{RESUME}">Request my résumé</a>
+<a class="vk-btn vk-btn--ghost" href="{RESUME_PDF}">Résumé (PDF)</a>
 </div>
+<p class="muted small">Full résumé available <a href="{RESUME}">on request</a>.</p>
 <p class="muted">Open to Senior and Lead product roles in B2B, fintech and AI.</p>
 </section>
 
@@ -138,8 +140,16 @@ home = f"""<main>
 </section>
 
 <section id="contact" class="contact" aria-labelledby="contact-title"><div class="wrap contactrow">
-<div><h2 id="contact-title">Get in touch</h2><p>I’m always happy to talk about product work.</p></div>
-<div class="actions"><a class="vk-btn invert" href="mailto:{EMAIL}">Email</a><a class="vk-btn outline" href="{LINKEDIN}">LinkedIn</a><a class="vk-btn outline" href="{RESUME}">Request my résumé</a></div>
+<div class="stack" style="gap:16px;max-width:420px"><h2 id="contact-title">Get in touch</h2><p>I’m always happy to talk about product work.</p>
+<div class="actions"><a class="vk-btn invert" href="mailto:{EMAIL}">Email</a><a class="vk-btn outline" href="{LINKEDIN}">LinkedIn</a><a class="vk-btn outline" href="{RESUME_PDF}">Résumé (PDF)</a></div>
+<p class="small">Full résumé available <a href="{RESUME}" style="color:#fff">on request</a>.</p></div>
+<form class="cform" aria-labelledby="cform-title" onsubmit="return false">
+<p id="cform-title" class="small"><strong>Contact form</strong> · coming soon. Until then, please email me.</p>
+<label>Name<input class="vk-input" name="name" disabled></label>
+<label>Email<input class="vk-input" name="email" type="email" disabled></label>
+<label>Message<textarea class="vk-input" name="message" rows="3" disabled></textarea></label>
+<button class="vk-btn invert" type="submit" disabled>Send</button>
+</form>
 </div></section>
 </main>"""
 
