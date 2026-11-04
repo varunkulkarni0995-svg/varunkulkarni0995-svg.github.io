@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Atlas Explorer · a satellite globe for young learners · Varun Kulkarni</title>
+<meta name="description" content="How I built Atlas Explorer: a satellite globe showing people, customs, local time and weather for any country or city.">
+<meta property="og:title" content="Atlas Explorer · a satellite globe for young learners · Varun Kulkarni">
+<meta property="og:description" content="How I built Atlas Explorer: a satellite globe showing people, customs, local time and weather for any country or city.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://varunkulkarni0995-svg.github.io/atlas-explorer.html">
+<meta property="og:image" content="https://varunkulkarni0995-svg.github.io/img/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://varunkulkarni0995-svg.github.io/atlas-explorer.html">
+<link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/css/vk-pro.css">
+<link rel="stylesheet" href="/css/bundle.css">
+<link rel="stylesheet" href="/css/site.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700;800&amp;family=Noto+Sans+Mono:wght@500;700&amp;display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="vk site">
+<header class="top"><nav aria-label="Main" class="wrap navbar">
+<a href="/" class="brand"><span class="mark">VK</span><span>Varun Kulkarni</span></a>
+<div class="navlinks"><a href="/#projects" aria-current="page">Projects</a><a href="/#experience">Experience</a><a href="/about.html">About</a><a class="vk-btn vk-btn--secondary navcta" href="/#contact">Contact</a></div>
+</nav></header>
+<main class="wrap stack page">
+<a href="/#projects" class="back">← All projects</a>
+<div class="badges"><span class="vk-badge vk-badge--success">Live prototype</span><span class="vk-badge">Laptop and phone</span><span class="vk-badge">v0.4</span></div>
+<h1>Atlas Explorer</h1>
+<p class="lede">A satellite globe for young learners. Click any country or city to see its basics, what its people call themselves, common customs, and the local time and weather.</p>
+<div class="actions"><a class="vk-btn vk-btn--primary" href="https://varunkulkarni0995-svg.github.io/atlas-explorer/">Open Atlas Explorer</a><a class="vk-btn vk-btn--secondary" href="https://github.com/varunkulkarni0995-svg/atlas-explorer">View the code on GitHub</a></div>
+<figure class="fig"><img loading="lazy" src="/img/atlas-explorer-india.webp" alt="Atlas Explorer: a satellite globe at night with India selected, and a panel showing its local time, capital, population and languages"><figcaption>India selected at night: local time, basics and people, with the sun and moon shown where they are overhead.</figcaption></figure>
+<div class="rows"><div class="row"><span class="vk-eyebrow">Background</span><div>It started as a quick Claude Design experiment that told a story about any region you clicked. I rebuilt it as a globe I could keep improving.</div></div><div class="row"><span class="vk-eyebrow">Hypothesis</span><div>Children remember a place better when they see its people and customs next to its map, instead of a list of facts.</div></div><div class="row"><span class="vk-eyebrow">Key decision</span><div>Facts are stored inside the page, so it loads fast and works offline. Only the weather is fetched live.</div></div><div class="row"><span class="vk-eyebrow">Implementation</span><div>Plain HTML and JavaScript on GitHub Pages. D3 draws the globe; NASA imagery is redrawn on a canvas with a real-time day/night shadow and the sun and moon positions. Weather from Open-Meteo.</div></div><div class="row"><span class="vk-eyebrow">Testing and validation</span><div>Browser checks on laptop and phone sizes, search tests for typos, local names and filters, and a check that borders line up with the satellite image.</div></div><div class="row"><span class="vk-eyebrow">Next steps</span><div>Planned: live population figures from the World Bank, culture notes for more countries, and a plain-English “ask the globe” question box.</div></div></div>
+<section class="stack" aria-labelledby="dec-title"><h2 id="dec-title">Product decisions and trade-offs</h2><div class="decisions"><article class="vk-card"><span class="vk-eyebrow">Data source</span><h3>No API key on a public page</h3><p>REST Countries moved behind an API key, and a key on a public page can be copied, so country facts are stored in the page instead.</p></article><article class="vk-card"><span class="vk-eyebrow">Clutter</span><h3>Cities appear as you zoom in</h3><p>947 city pins hid the countries. Country names now come first, and cities appear by size as you zoom in.</p></article><article class="vk-card"><span class="vk-eyebrow">Brand</span><h3>One mode, characters in the gaps</h3><p>Built in my design system’s Pro Dark mode. Characters appear only while loading, on empty searches and at night.</p></article></div></section>
+</main>
+<footer class="foot"><div class="wrap footrow">
+<span class="muted">Varun Kulkarni · New York</span>
+<span class="footlinks"><a href="mailto:varunkulkarni0995@gmail.com">Email</a><a href="https://www.linkedin.com/in/vkulkarnipm">LinkedIn</a><a href="https://github.com/varunkulkarni0995-svg">GitHub</a><span class="ver">v2.9</span></span>
+</div></footer>
+</div>
+</body>
+</html>

@@ -1,7 +1,7 @@
 """Builds the website pages (v2.2) from the content below. Run: python3 tools/build_site.py"""
 import html, pathlib
 
-VERSION = "v2.8"
+VERSION = "v2.9"
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 EMAIL = "varunkulkarni0995@gmail.com"
 LINKEDIN = "https://www.linkedin.com/in/vkulkarnipm"
@@ -11,6 +11,7 @@ RESUME = "mailto:" + EMAIL + "?subject=R%C3%A9sum%C3%A9%20request"
 LAYERUP = "https://varunkulkarni0995-svg.github.io/layer-up/"
 APIBENCH = "https://varunkulkarni0995-svg.github.io/api-bench/"
 COMPARE = APIBENCH + "compare.html"
+ATLAS = "https://varunkulkarni0995-svg.github.io/atlas-explorer/"
 
 def e(s): return html.escape(s, quote=True)
 
@@ -109,7 +110,7 @@ home = f"""<main>
 </div></section>
 
 <section id="projects" class="wrap stack section" aria-labelledby="projects-title">
-<div><span class="vk-eyebrow">Selected projects</span><h2 id="projects-title">Selected projects</h2><p class="muted">Small tools I build to stay hands-on with AI and APIs. Both are live prototypes.</p></div>
+<div><span class="vk-eyebrow">Selected projects</span><h2 id="projects-title">Selected projects</h2><p class="muted">Small tools I build to stay hands-on with AI and APIs. All three are live prototypes.</p></div>
 <div class="cards">
 <article class="vk-card vk-card--raised proj">
 <div class="shot shot--phone"><img src="/img/layer-up-today.webp" alt="Layer Up NYC on a phone: feels-like 6°, an hourly strip and today's outfit"></div>
@@ -126,6 +127,14 @@ home = f"""<main>
 <p>Sends one prompt to several AI providers and keeps every request, response, error and timing, so the answers can be compared side by side.</p>
 <p class="muted small">Live prototype · laptop · 11 AI providers</p>
 <div class="actions"><a class="vk-btn vk-btn--primary" href="{COMPARE}">Try it</a><a class="vk-btn vk-btn--ghost" href="/api-bench.html">How I built it →</a></div>
+</div></article>
+<article class="vk-card vk-card--raised proj">
+<div class="shot"><img loading="lazy" src="/img/atlas-explorer-india.webp" alt="Atlas Explorer: a satellite globe at night with India selected, and a panel showing its local time, capital, population and languages"></div>
+<div class="projbody">
+<h3>Atlas Explorer <span class="muted thin">— a satellite globe for young learners</span></h3>
+<p>Click any country or city to see its basics, what its people call themselves, common customs, and the local time and weather. The sun and moon sit where they’re overhead right now.</p>
+<p class="muted small">Live prototype · laptop and phone · 249 countries, 947 cities</p>
+<div class="actions"><a class="vk-btn vk-btn--primary" href="{ATLAS}">Try it</a><a class="vk-btn vk-btn--ghost" href="/atlas-explorer.html">How I built it →</a></div>
 </div></article>
 </div>
 </section>
@@ -204,6 +213,20 @@ apibench = build_page("", ["Live prototype", "Laptop", "v1.3.3"], "API Bench",
      ("Reasoning models", "Answers lost to hidden reasoning", "Some models used their whole answer budget on hidden reasoning and returned nothing. The tool shows reasoning tokens and suggests raising the limit."),
      ("Unsupported settings", "Retry without the rejected setting", "Claude Haiku 5.5 rejects the temperature setting. The tool resends without it and keeps both attempts on record.")])
 
+atlas = build_page("", ["Live prototype", "Laptop and phone", "v0.4"], "Atlas Explorer",
+    "A satellite globe for young learners. Click any country or city to see its basics, what its people call themselves, common customs, and the local time and weather.",
+    [("Open Atlas Explorer", ATLAS, "vk-btn--primary"), ("View the code on GitHub", GITHUB + "/atlas-explorer", "vk-btn--secondary")],
+    '<figure class="fig"><img loading="lazy" src="/img/atlas-explorer-india.webp" alt="Atlas Explorer: a satellite globe at night with India selected, and a panel showing its local time, capital, population and languages"><figcaption>India selected at night: local time, basics and people, with the sun and moon shown where they are overhead.</figcaption></figure>',
+    [("Background", e("It started as a quick Claude Design experiment that told a story about any region you clicked. I rebuilt it as a globe I could keep improving.")),
+     ("Hypothesis", e("Children remember a place better when they see its people and customs next to its map, instead of a list of facts.")),
+     ("Key decision", e("Facts are stored inside the page, so it loads fast and works offline. Only the weather is fetched live.")),
+     ("Implementation", e("Plain HTML and JavaScript on GitHub Pages. D3 draws the globe; NASA imagery is redrawn on a canvas with a real-time day/night shadow and the sun and moon positions. Weather from Open-Meteo.")),
+     ("Testing and validation", e("Browser checks on laptop and phone sizes, search tests for typos, local names and filters, and a check that borders line up with the satellite image.")),
+     ("Next steps", e("Planned: live population figures from the World Bank, culture notes for more countries, and a plain-English “ask the globe” question box."))],
+    [("Data source", "No API key on a public page", "REST Countries moved behind an API key, and a key on a public page can be copied, so country facts are stored in the page instead."),
+     ("Clutter", "Cities appear as you zoom in", "947 city pins hid the countries. Country names now come first, and cities appear by size as you zoom in."),
+     ("Brand", "One mode, characters in the gaps", "Built in my design system’s Pro Dark mode. Characters appear only while loading, on empty searches and at night.")])
+
 about = f"""<main class="wrap stack page narrow">
 <span class="vk-eyebrow">About</span>
 <h1>A little more about me</h1>
@@ -225,6 +248,7 @@ pages = {
     "index.html": page("Varun Kulkarni · Product manager", "Product manager with 8+ years taking products from idea to launch, including UPI at NPCI. Now in New York.", home),
     "layer-up.html": page("Layer Up NYC · a weather-based outfit planner · Varun Kulkarni", "How I built Layer Up NYC: what to wear in New York from the hourly forecast, how you travel and your tolerance for weather.", layerup, "Projects", "/layer-up.html"),
     "api-bench.html": page("API Bench · testing APIs and comparing AI models · Varun Kulkarni", "How I built API Bench: one prompt sent to several AI providers, with every request, response, error and timing kept.", apibench, "Projects", "/api-bench.html"),
+    "atlas-explorer.html": page("Atlas Explorer · a satellite globe for young learners · Varun Kulkarni", "How I built Atlas Explorer: a satellite globe showing people, customs, local time and weather for any country or city.", atlas, "Projects", "/atlas-explorer.html"),
     "about.html": page("About Varun Kulkarni", "Product manager who moved from mechanical engineering into payments product work in India, now in New York.", about, "About", "/about.html"),
     "404.html": page("Page not found · Varun Kulkarni", "This page isn't here. Head back to the home page.", notfound, path="/404.html"),
 }
